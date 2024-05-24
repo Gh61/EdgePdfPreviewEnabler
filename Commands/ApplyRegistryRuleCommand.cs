@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
@@ -25,6 +26,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
             try
             {
                 rule.Apply();
+                Thread.Sleep(100); // wait a little for registers to update and also for user
             }
             catch (Exception e)
             {
