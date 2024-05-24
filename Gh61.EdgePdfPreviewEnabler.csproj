@@ -59,6 +59,7 @@
     <Compile Include="Commands\InstallDependencyRuleCommand.cs" />
     <Compile Include="Commands\IUICommand.cs" />
     <Compile Include="Commands\RefreshRulesCommand.cs" />
+    <Compile Include="Commands\RestartAsAdminCommand.cs" />
     <Compile Include="Commands\UICommandBase.cs" />
     <Compile Include="Converters\InvertBoolConverter.cs" />
     <Compile Include="DependencyRules\DependencyRuleBase.cs" />

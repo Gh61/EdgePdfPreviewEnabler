@@ -39,10 +39,10 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="This application is NOT running with Admin privileges."/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="You probably won't be able to Apply registry patches and/or Install required software."/>
 
-                <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Padding="12">
+                <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Padding="12" Command="{x:Static commands:RestartAsAdminCommand.Instance}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{Binding AdminShieldBitmapSource}" Margin="0 0 6 0"/>
-                        <TextBlock Text="Restart as Administrator"/>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor , AncestorType={x:Type Button}}, Path=Command.Text}"/>
                     </StackPanel>
                 </Button>
             </Grid>
