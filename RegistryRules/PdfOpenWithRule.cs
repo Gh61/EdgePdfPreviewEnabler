@@ -37,7 +37,7 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 
         public override void Apply()
         {
-            var pdfExtensionKey = Registry.ClassesRoot.OpenSubKey(".pdf");
+            var pdfExtensionKey = Registry.ClassesRoot.OpenSubKey(".pdf", true);
             if (pdfExtensionKey == null)
             {
                 pdfExtensionKey = Registry.ClassesRoot.CreateSubKey(".pdf");
@@ -50,7 +50,7 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
                 pdfExtensionKey.SetValue("Content Type", "application/pdf", RegistryValueKind.String);
             }
 
-            var openWithProgids = pdfExtensionKey.OpenSubKey("OpenWithProgids");
+            var openWithProgids = pdfExtensionKey.OpenSubKey("OpenWithProgids", true);
             if (openWithProgids == null)
             {
                 openWithProgids = pdfExtensionKey.CreateSubKey("OpenWithProgids");

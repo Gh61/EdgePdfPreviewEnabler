@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,7 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\ApplyRegistryRulesCommand.cs" />
+    <Compile Include="Commands\ApplyMultipleRegistryRulesCommand.cs" />
+    <Compile Include="Commands\ApplyRegistryRuleCommand.cs" />
     <Compile Include="Commands\InstallDependencyRuleCommand.cs" />
     <Compile Include="Commands\IUICommand.cs" />
     <Compile Include="Commands\RefreshRulesCommand.cs" />
@@ -63,9 +65,15 @@
     <Compile Include="DependencyRules\MsEdgeInstalledRule.cs" />
     <Compile Include="DependencyRules\MsWebView2InstalledRule.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="RegistryRules\ClsidPreviewHandlerRule.cs" />
+    <Compile Include="RegistryRules\ClsidX64PreviewHandlerRule.cs" />
     <Compile Include="RegistryRules\PdfOpenWithRule.cs" />
+    <Compile Include="RegistryRules\PdfPersistentHelperRule.cs" />
+    <Compile Include="RegistryRules\PreviewHandlerListRule.cs" />
+    <Compile Include="RegistryRules\PreviewHandlerX64ListRule.cs" />
     <Compile Include="RegistryRules\RegistryRuleBase.cs" />
     <Compile Include="Rules\RuleBase.cs" />
+    <Compile Include="WinUtils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

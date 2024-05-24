@@ -1,14 +1,17 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
 {
-    internal class MsWebView2InstalledRule : MsEdgeInstalledRule
+    internal class MsWebView2InstalledRule : DependencyRuleBase
     {
         private const string WebView2ExeName = "msedgewebview2.exe";
+        private readonly MsEdgeInstalledRule _edgeInstalledRule;
 
-        public MsWebView2InstalledRule()
+        public MsWebView2InstalledRule(MsEdgeInstalledRule edgeInstalledRule)
             : base("Microsoft WebView2 installed")
         {
+            _edgeInstalledRule = edgeInstalledRule ?? throw new ArgumentNullException(nameof(edgeInstalledRule));
         }
 
         public override bool IsFulfilled
@@ -16,12 +19,12 @@ namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
             get
             {
                 // gets the version directory path
-                _ = base.IsFulfilled;
+                _ = _edgeInstalledRule.IsFulfilled;
 
-                if (VersionDirectoryPath == null)
+                if (_edgeInstalledRule.VersionDirectoryPath == null)
                     return false;
 
-                var webViewExePath = Path.Combine(VersionDirectoryPath, WebView2ExeName);
+                var webViewExePath = Path.Combine(_edgeInstalledRule.VersionDirectoryPath, WebView2ExeName);
                 if (!File.Exists(webViewExePath))
                     return false;
 

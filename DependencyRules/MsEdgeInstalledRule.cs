@@ -8,8 +8,8 @@ namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
         private const string MsEdgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application";
         private const string MsEdgeExeName = "msedge.exe";
 
-        public MsEdgeInstalledRule(string title = null)
-            : base(title ?? "Microsoft Edge (preview helper) installed")
+        public MsEdgeInstalledRule()
+            : base("Microsoft Edge (preview helper) installed")
         {
         }
 
@@ -31,6 +31,10 @@ namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
             private set;
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// Also loads the properties <see cref="VersionDirectoryPath"/> and <see cref="PdfPreviewDllPath"/>.
+        /// </summary>
         public override bool IsFulfilled
         {
             get

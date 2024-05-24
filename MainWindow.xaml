@@ -6,25 +6,15 @@
         xmlns:local="clr-namespace:Gh61.EdgePdfPreviewEnabler"
         xmlns:commands="clr-namespace:Gh61.EdgePdfPreviewEnabler.Commands"
         mc:Ignorable="d"
-        Title="Edge PDF Preview Enabler" Height="450" Width="800"
+        Title="Edge PDF Preview Enabler" Height="550" Width="800"
         WindowStyle="ToolWindow">
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
-    <Window.Resources>
-        <!-- Styles -->
-        <Style TargetType="{x:Type CheckBox}">
-            <Setter Property="Margin" Value="2" />
-        </Style>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Padding" Value="4 0" />
-            <!--Default Button content to be the Text provided from the Command.-->
-            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
-        </Style>
-    </Window.Resources>
 
     <Grid Margin="16" Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -35,9 +25,32 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Installations:" />
-        <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="0 2" Command="{x:Static commands:RefreshRulesCommand.Instance}" CommandParameter="{Binding DependencyRules}" />
-        <ItemsControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" ItemsSource="{Binding DependencyRules}">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding NonAdminMessageVisibility}" Margin="0 0 0 8" Padding="6" Background="LightCoral">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="This application is NOT running with Admin privileges."/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="You probably won't be able to Apply registry patches and/or Install required software."/>
+
+                <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Padding="12">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding AdminShieldBitmapSource}" Margin="0 0 6 0"/>
+                        <TextBlock Text="Restart as Administrator"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Installations:" FontSize="16" FontWeight="DemiBold" />
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Command="{x:Static commands:RefreshRulesCommand.Instance}" CommandParameter="{Binding DependencyRules}" />
+        <ItemsControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" ItemsSource="{Binding DependencyRules}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0 2">
@@ -47,17 +60,20 @@
                         </Grid.ColumnDefinitions>
 
                         <CheckBox Grid.Column="0" IsChecked="{Binding IsFulfilled, Mode=OneWay}" IsEnabled="False">
-                            <TextBlock Text="{Binding Title, Mode=OneTime}" Margin="4 0 8 0" />
+                            <TextBlock Text="{Binding Title, Mode=OneTime}" />
                         </CheckBox>
-                        <Button Grid.Column="1" Command="{x:Static commands:InstallDependencyRuleCommand.Instance}" CommandParameter="{Binding}" />
+                        <Button Grid.Column="1" Margin="0" Command="{x:Static commands:InstallDependencyRuleCommand.Instance}" CommandParameter="{Binding}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Registry:" />
-        <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="0 2" Command="{x:Static commands:RefreshRulesCommand.Instance}" CommandParameter="{Binding RegistryRules}" />
-        <ItemsControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding RegistryRules}" BorderBrush="Gray" BorderThickness="1">
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Registry:" FontSize="16" FontWeight="DemiBold" />
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button Command="{x:Static commands:RefreshRulesCommand.Instance}" CommandParameter="{Binding RegistryRules}" />
+            <Button Command="{x:Static commands:ApplyMultipleRegistryRulesCommand.Instance}" CommandParameter="{Binding RegistryRules}" />
+        </StackPanel>
+        <ItemsControl Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding RegistryRules}" BorderBrush="Gray" BorderThickness="1">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0 2">
@@ -67,9 +83,9 @@
                         </Grid.ColumnDefinitions>
 
                         <CheckBox Grid.Column="0" IsChecked="{Binding IsFulfilled, Mode=OneWay}" IsEnabled="False">
-                            <TextBlock Text="{Binding Title, Mode=OneTime}" Margin="4 0 8 0" />
+                            <TextBlock Text="{Binding Title, Mode=OneTime}" />
                         </CheckBox>
-                        <Button Grid.Column="1" Command="{x:Static commands:ApplyRegistryRulesCommand.Instance}" CommandParameter="{Binding}" />
+                        <Button Grid.Column="1" Margin="0" Command="{x:Static commands:ApplyRegistryRuleCommand.Instance}" CommandParameter="{Binding}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

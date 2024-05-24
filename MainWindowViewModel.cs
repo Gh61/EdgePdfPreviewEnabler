@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
+using System.Windows.Media.Imaging;
 using Gh61.EdgePdfPreviewEnabler.DependencyRules;
 using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
@@ -10,17 +12,47 @@ namespace Gh61.EdgePdfPreviewEnabler
     {
         public MainWindowViewModel()
         {
+            #region Is Admin
+
+            NonAdminMessageVisibility = WinUtils.IsAdmin() ? Visibility.Collapsed : Visibility.Visible;
+            AdminShieldBitmapSource = WinUtils.GetWindowsAdminShield();
+
+            #endregion
+
+            #region Rules
+
+            var msInstalledRule = new MsEdgeInstalledRule();
+
             DependencyRules = new ObservableCollection<DependencyRuleBase>()
             {
-                new MsEdgeInstalledRule(),
-                new MsWebView2InstalledRule()
+                msInstalledRule,
+                new MsWebView2InstalledRule(msInstalledRule)
             };
 
             RegistryRules = new ObservableCollection<RegistryRuleBase>()
             {
-                new PdfOpenWithRule()
+                new PdfOpenWithRule(),
+                new PdfPersistentHelperRule(),
+                new ClsidPreviewHandlerRule(msInstalledRule),
+                new PreviewHandlerListRule(),
             };
+
+            if (ClsidX64PreviewHandlerRule.ShouldBeUsed())
+            {
+                RegistryRules.Insert(3, new ClsidX64PreviewHandlerRule(msInstalledRule));
+            }
+
+            if (PreviewHandlerX64ListRule.ShouldBeUsed())
+            {
+                RegistryRules.Add(new PreviewHandlerX64ListRule());
+            }
+
+            #endregion
         }
+
+        public Visibility NonAdminMessageVisibility { get; }
+
+        public BitmapSource AdminShieldBitmapSource { get; }
 
         public ObservableCollection<DependencyRuleBase> DependencyRules { get; }
 

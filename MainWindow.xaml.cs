@@ -7,9 +7,12 @@ namespace Gh61.EdgePdfPreviewEnabler
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow LastInstance { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            LastInstance = this;
         }
     }
 }
