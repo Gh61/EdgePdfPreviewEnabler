@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 using Gh61.EdgePdfPreviewEnabler.Rules;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
@@ -7,7 +8,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
     {
         public static RefreshRulesCommand Instance { get; } = new RefreshRulesCommand();
 
-        private RefreshRulesCommand() : base("Refresh")
+        private RefreshRulesCommand() : base(Resources.CommandRefresh)
         {
         }
 

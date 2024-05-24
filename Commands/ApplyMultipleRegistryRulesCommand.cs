@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
@@ -7,7 +8,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
     {
         public static ApplyMultipleRegistryRulesCommand Instance { get; } = new ApplyMultipleRegistryRulesCommand();
 
-        private ApplyMultipleRegistryRulesCommand() : base("Apply All")
+        private ApplyMultipleRegistryRulesCommand() : base(Resources.CommandApplyAll)
         {
         }
 

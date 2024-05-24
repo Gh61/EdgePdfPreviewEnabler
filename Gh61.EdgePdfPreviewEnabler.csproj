@@ -61,10 +61,18 @@
     <Compile Include="Commands\RefreshRulesCommand.cs" />
     <Compile Include="Commands\RestartAsAdminCommand.cs" />
     <Compile Include="Commands\UICommandBase.cs" />
-    <Compile Include="Converters\InvertBoolConverter.cs" />
     <Compile Include="DependencyRules\DependencyRuleBase.cs" />
     <Compile Include="DependencyRules\MsEdgeInstalledRule.cs" />
     <Compile Include="DependencyRules\MsWebView2InstalledRule.cs" />
+    <Compile Include="Localization\LocalizationDefinition.cs" />
+    <Compile Include="Localization\LocalizationKey.cs" />
+    <Compile Include="Localization\Resources.cs.cs" />
+    <Compile Include="Localization\Resources.en.cs" />
+    <Compile Include="Localization\Resources.Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.Properties.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="RegistryRules\ClsidPreviewHandlerRule.cs" />
     <Compile Include="RegistryRules\ClsidX64PreviewHandlerRule.cs" />
@@ -74,6 +82,7 @@
     <Compile Include="RegistryRules\PreviewHandlerX64ListRule.cs" />
     <Compile Include="RegistryRules\RegistryRuleBase.cs" />
     <Compile Include="RegistryRules\SetAsDefaultPreviewerRule.cs" />
+    <Compile Include="Localization\Resources.cs" />
     <Compile Include="Rules\RuleBase.cs" />
     <Compile Include="WinUtils.cs" />
     <Page Include="MainWindow.xaml">
@@ -112,6 +121,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Localization\Resources.Properties.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Resources.Properties.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,34 @@
+﻿<#@ template hostspecific="true" debug="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="Gh61.EdgePdfPreviewEnabler.Localization" #>
+<#@ output extension=".cs" #>
+<#
+    var defaultCulture = new CultureInfo("en-US");
+    var keys = Enum.GetValues(typeof(LocalizationKey))
+                    .Cast<LocalizationKey>()
+                    .ToList();
+#>
+namespace Gh61.EdgePdfPreviewEnabler.Localization
+{
+    public static partial class Resources
+    {
+<#
+    foreach (var key in keys)
+    {
+        var defaultTranslation = Resources.GetTranslation(key, defaultCulture);
+#>
+        /// <summary>
+        ///   Looks up a localized string similar to <#= defaultTranslation #>.
+        /// </summary>
+        public static string <#= key #> => GetTranslation(LocalizationKey.<#= key.ToString() #>);
+
+<#
+    }
+#>
+    }
+}

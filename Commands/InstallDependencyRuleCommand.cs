@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gh61.EdgePdfPreviewEnabler.DependencyRules;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
@@ -9,7 +10,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
 
         private readonly HashSet<DependencyRuleBase> _registeredRules = new HashSet<DependencyRuleBase>();
 
-        private InstallDependencyRuleCommand() : base("Install")
+        private InstallDependencyRuleCommand() : base(Resources.CommandInstall)
         {
         }
 

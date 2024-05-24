@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
@@ -12,7 +13,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
 
         private readonly HashSet<RegistryRuleBase> _registeredRules = new HashSet<RegistryRuleBase>();
 
-        private ApplyRegistryRuleCommand() : base("Apply")
+        private ApplyRegistryRuleCommand() : base(Resources.CommandApply)
         {
         }
 

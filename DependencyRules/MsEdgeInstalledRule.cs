@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
 {
@@ -9,7 +10,7 @@ namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
         private const string MsEdgeExeName = "msedge.exe";
 
         public MsEdgeInstalledRule()
-            : base("Microsoft Edge (preview helper) installed")
+            : base(Resources.RuleMsEdgeInstalled)
         {
         }
 

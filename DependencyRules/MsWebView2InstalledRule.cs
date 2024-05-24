@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
 {
@@ -9,7 +10,7 @@ namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
         private readonly MsEdgeInstalledRule _edgeInstalledRule;
 
         public MsWebView2InstalledRule(MsEdgeInstalledRule edgeInstalledRule)
-            : base("Microsoft WebView2 installed")
+            : base(Resources.RuleWebView2Installed)
         {
             _edgeInstalledRule = edgeInstalledRule ?? throw new ArgumentNullException(nameof(edgeInstalledRule));
         }

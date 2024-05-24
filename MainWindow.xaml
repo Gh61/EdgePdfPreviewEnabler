@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gh61.EdgePdfPreviewEnabler"
         xmlns:commands="clr-namespace:Gh61.EdgePdfPreviewEnabler.Commands"
+        xmlns:resx="clr-namespace:Gh61.EdgePdfPreviewEnabler.Localization"
         mc:Ignorable="d"
         Title="Microsoft Edge PDF Preview Enabler" Height="550" Width="800"
         WindowStyle="ToolWindow">
@@ -38,8 +39,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="This application is NOT running with Admin privileges."/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="You probably won't be able to Apply registry patches and/or Install required software."/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static resx:Resources.NonAdminMessage}"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static resx:Resources.AdminPrivilegeWarning}"/>
 
                 <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Padding="12" Command="{x:Static commands:RestartAsAdminCommand.Instance}">
                     <StackPanel Orientation="Horizontal">
@@ -50,7 +51,7 @@
             </Grid>
         </Border>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Installations:" FontSize="16" FontWeight="DemiBold" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static resx:Resources.InstallationsHeader}" FontSize="16" FontWeight="DemiBold" />
         <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Command="{x:Static commands:RefreshRulesCommand.Instance}" CommandParameter="{Binding DependencyRules}" />
         <ItemsControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1" ItemsSource="{Binding DependencyRules}">
             <ItemsControl.ItemTemplate>
@@ -70,7 +71,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Registry:" FontSize="16" FontWeight="DemiBold" />
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static resx:Resources.RegistryHeader}" FontSize="16" FontWeight="DemiBold" />
         <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal">
             <Button Command="{x:Static commands:RefreshRulesCommand.Instance}" CommandParameter="{Binding RegistryRules}" />
             <Button Command="{x:Static commands:ApplyMultipleRegistryRulesCommand.Instance}" CommandParameter="{Binding RegistryRules}" />
@@ -93,7 +94,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="Set as default PDF Previewer:" FontSize="16" FontWeight="DemiBold" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{x:Static resx:Resources.DefaultPdfPreviewerHeader}" FontSize="16" FontWeight="DemiBold" />
         <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1">
             <Grid Margin="0 2">
                 <Grid.ColumnDefinitions>

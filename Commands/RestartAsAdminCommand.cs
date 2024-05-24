@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
@@ -9,8 +10,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
     {
         public static RestartAsAdminCommand Instance { get; } = new RestartAsAdminCommand();
 
-        private RestartAsAdminCommand()
-            : base("Restart as Administrator")
+        private RestartAsAdminCommand() : base(Resources.CommandRestartAsAdmin)
         {
         }
 
@@ -20,7 +20,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
 
             var proc = new Process()
             {
-                StartInfo = new ProcessStartInfo()
+                StartInfo =
                 {
                     FileName = exePath,
                     UseShellExecute = true,
