@@ -3,7 +3,7 @@ using Microsoft.Win32;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class ClsidX64PreviewHandlerRule : ClsidPreviewHandlerRule
+    public class ClsidX64PreviewHandlerRule : ClsidPreviewHandlerRule
     {
         public ClsidX64PreviewHandlerRule(MsEdgeInstalledRule edgeInstalledRule)
             : base(edgeInstalledRule, @"WOW6432Node\CLSID\")

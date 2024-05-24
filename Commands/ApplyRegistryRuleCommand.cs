@@ -7,7 +7,7 @@ using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
-    internal class ApplyRegistryRuleCommand : UICommandBase<RegistryRuleBase>
+    public class ApplyRegistryRuleCommand : UICommandBase<RegistryRuleBase>
     {
         public static ApplyRegistryRuleCommand Instance { get; } = new ApplyRegistryRuleCommand();
 
@@ -22,7 +22,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
             ExecuteCore(rule);
         }
 
-        internal static void ExecuteCore(RegistryRuleBase rule)
+        public static void ExecuteCore(RegistryRuleBase rule)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
             return CanExecuteCore(rule);
         }
 
-        internal static bool CanExecuteCore(RegistryRuleBase rule)
+        public static bool CanExecuteCore(RegistryRuleBase rule)
         {
             return !rule.IsFulfilled;
         }

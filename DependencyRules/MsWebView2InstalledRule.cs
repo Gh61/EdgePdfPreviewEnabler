@@ -4,7 +4,7 @@ using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
 {
-    internal class MsWebView2InstalledRule : DependencyRuleBase
+    public class MsWebView2InstalledRule : DependencyRuleBase
     {
         private const string WebView2ExeName = "msedgewebview2.exe";
         private readonly MsEdgeInstalledRule _edgeInstalledRule;

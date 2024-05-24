@@ -2,7 +2,7 @@
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class PreviewHandlerListRule : RegistryRuleBase
+    public class PreviewHandlerListRule : RegistryRuleBase
     {
         /// <summary>
         /// Default name for Preview Handler

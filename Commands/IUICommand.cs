@@ -2,7 +2,7 @@
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
-    internal interface IUICommand : ICommand
+    public interface IUICommand : ICommand
     {
         string Text { get; }
     }

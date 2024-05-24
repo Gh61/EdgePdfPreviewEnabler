@@ -3,7 +3,7 @@ using Microsoft.Win32;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class SetAsDefaultPreviewerRule : RegistryRuleBase
+    public class SetAsDefaultPreviewerRule : RegistryRuleBase
     {
         public SetAsDefaultPreviewerRule()
             : base(@"HKCR\.pdf\ShellEx\{8895b1c6-b41f-4c1c-a562-0d564250836f}")

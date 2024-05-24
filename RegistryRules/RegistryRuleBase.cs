@@ -13,7 +13,7 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
     /// <summary>
     /// Base class for all rules that needs to be applied to registry.
     /// </summary>
-    internal abstract class RegistryRuleBase : RuleBase
+    public abstract class RegistryRuleBase : RuleBase
     {
         protected RegistryRuleBase(string title) : base(title)
         {

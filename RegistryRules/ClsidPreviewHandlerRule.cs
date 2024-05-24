@@ -4,7 +4,7 @@ using Microsoft.Win32;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class ClsidPreviewHandlerRule : RegistryRuleBase
+    public class ClsidPreviewHandlerRule : RegistryRuleBase
     {
         /// <summary>
         /// GUID for PDF Preview Handler

@@ -6,7 +6,7 @@ using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
-    internal class RestartAsAdminCommand : UICommandBase<object>
+    public class RestartAsAdminCommand : UICommandBase<object>
     {
         public static RestartAsAdminCommand Instance { get; } = new RestartAsAdminCommand();
 

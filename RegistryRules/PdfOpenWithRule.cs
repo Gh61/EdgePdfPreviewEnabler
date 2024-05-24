@@ -3,7 +3,7 @@ using Microsoft.Win32;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class PdfOpenWithRule : RegistryRuleBase
+    public class PdfOpenWithRule : RegistryRuleBase
     {
         public PdfOpenWithRule()
             : base(@"HKCR\.pdf\OpenWithProgids")

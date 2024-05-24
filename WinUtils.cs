@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 
 namespace Gh61.EdgePdfPreviewEnabler
 {
-    internal static class WinUtils
+    public static class WinUtils
     {
         /// <summary>
         /// Returns whether the application is running with elevated (admin) rights.

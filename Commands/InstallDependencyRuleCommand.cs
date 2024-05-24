@@ -4,7 +4,7 @@ using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
-    internal class InstallDependencyRuleCommand : UICommandBase<DependencyRuleBase>
+    public class InstallDependencyRuleCommand : UICommandBase<DependencyRuleBase>
     {
         public static InstallDependencyRuleCommand Instance { get; } = new InstallDependencyRuleCommand();
 

@@ -4,7 +4,7 @@ using Gh61.EdgePdfPreviewEnabler.Localization;
 
 namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
 {
-    internal class MsEdgeInstalledRule : DependencyRuleBase
+    public class MsEdgeInstalledRule : DependencyRuleBase
     {
         private const string MsEdgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application";
         private const string MsEdgeExeName = "msedge.exe";

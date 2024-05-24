@@ -2,7 +2,7 @@
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class PreviewHandlerX64ListRule : PreviewHandlerListRule
+    public class PreviewHandlerX64ListRule : PreviewHandlerListRule
     {
         public PreviewHandlerX64ListRule()
             : base(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\PreviewHandlers")

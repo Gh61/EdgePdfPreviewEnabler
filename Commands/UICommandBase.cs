@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
-    internal abstract class UICommandBase<TParameter> : IUICommand
+    public abstract class UICommandBase<TParameter> : IUICommand
     {
         protected UICommandBase(string text)
         {

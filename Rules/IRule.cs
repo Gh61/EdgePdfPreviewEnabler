@@ -1,6 +1,6 @@
 ﻿namespace Gh61.EdgePdfPreviewEnabler.Rules
 {
-    internal interface IRule
+    public interface IRule
     {
         /// <summary>
         /// Returns title of the rule, for UI.

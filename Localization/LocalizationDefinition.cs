@@ -2,7 +2,7 @@
 
 namespace Gh61.EdgePdfPreviewEnabler.Localization
 {
-    internal class LocalizationDefinition
+    public class LocalizationDefinition
     {
         public Dictionary<LocalizationKey, string> Translations { get; } = new Dictionary<LocalizationKey, string>();
 

@@ -3,7 +3,7 @@ using Microsoft.Win32;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 {
-    internal class PdfPersistentHelperRule : RegistryRuleBase
+    public class PdfPersistentHelperRule : RegistryRuleBase
     {
         public PdfPersistentHelperRule()
             : base(@"HKCR\.pdf\PersistentHandler")

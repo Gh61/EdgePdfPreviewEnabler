@@ -3,7 +3,7 @@ using Gh61.EdgePdfPreviewEnabler.Rules;
 
 namespace Gh61.EdgePdfPreviewEnabler.DependencyRules
 {
-    internal abstract class DependencyRuleBase : RuleBase
+    public abstract class DependencyRuleBase : RuleBase
     {
         protected DependencyRuleBase(string title) : base(title)
         {

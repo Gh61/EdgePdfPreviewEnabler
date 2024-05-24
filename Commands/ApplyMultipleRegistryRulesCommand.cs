@@ -4,7 +4,7 @@ using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
-    internal class ApplyMultipleRegistryRulesCommand : UICommandBase<IEnumerable>
+    public class ApplyMultipleRegistryRulesCommand : UICommandBase<IEnumerable>
     {
         public static ApplyMultipleRegistryRulesCommand Instance { get; } = new ApplyMultipleRegistryRulesCommand();
 

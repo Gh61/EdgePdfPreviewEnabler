@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Gh61.EdgePdfPreviewEnabler.Rules
 {
-    internal abstract class RuleBase : IRule, INotifyPropertyChanged
+    public abstract class RuleBase : IRule, INotifyPropertyChanged
     {
         protected RuleBase(string title)
         {
