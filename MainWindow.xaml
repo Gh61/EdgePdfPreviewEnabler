@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Gh61.EdgePdfPreviewEnabler"
         xmlns:commands="clr-namespace:Gh61.EdgePdfPreviewEnabler.Commands"
         mc:Ignorable="d"
-        Title="Edge PDF Preview Enabler" Height="550" Width="800"
+        Title="Microsoft Edge PDF Preview Enabler" Height="550" Width="800"
         WindowStyle="ToolWindow">
     <Window.DataContext>
         <local:MainWindowViewModel />
@@ -14,6 +14,8 @@
 
     <Grid Margin="16" Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -90,5 +92,21 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="Set as default PDF Previewer:" FontSize="16" FontWeight="DemiBold" />
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="1">
+            <Grid Margin="0 2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="col1" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="col2" />
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Grid.Column="0" IsChecked="{Binding SetAsDefaultRule.IsFulfilled, Mode=OneWay}" IsEnabled="False">
+                    <TextBlock Text="{Binding SetAsDefaultRule.Title, Mode=OneTime}" />
+                </CheckBox>
+                <!-- Due to bug in WPF the CommandParameter needs to be written before Command, and both needs to be bound from VM -->
+                <Button Grid.Column="1" Margin="0" CommandParameter="{Binding SetAsDefaultRule}" Command="{Binding ApplyRegistryRuleCommand}" />
+            </Grid>
+        </Border>
     </Grid>
 </Window>

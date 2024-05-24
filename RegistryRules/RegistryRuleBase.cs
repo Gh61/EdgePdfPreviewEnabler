@@ -5,6 +5,7 @@
  * and own observations
  */
 
+using System;
 using Gh61.EdgePdfPreviewEnabler.Rules;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
@@ -22,5 +23,17 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
         /// Will aply edits to the registry for this rule, so it wil be fulfilled.
         /// </summary>
         public abstract void Apply();
+
+        #region Helpers
+
+        /// <summary>
+        /// Returns whether the two guids in (supposedly 'B' - brackets) text format equals.
+        /// </summary>
+        protected bool GuidEquals(string guid1, string guid2)
+        {
+            return string.Compare(guid1, guid2, StringComparison.OrdinalIgnoreCase) == 0;
+        }
+
+        #endregion
     }
 }

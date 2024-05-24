@@ -23,7 +23,7 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
                     return false;
 
                 var containsCorrectGuid = persistentHandler.GetValue(null);
-                if (Convert.ToString(containsCorrectGuid) != "{1AA9BF05-9A97-48c1-BA28-D9DCE795E93C}")
+                if (!GuidEquals(Convert.ToString(containsCorrectGuid), "{1AA9BF05-9A97-48c1-BA28-D9DCE795E93C}"))
                     return false;
 
                 return true;
@@ -45,7 +45,7 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
             }
 
             var containsCorrectGuid = persistentHandler.GetValue(null);
-            if (Convert.ToString(containsCorrectGuid) != "{1AA9BF05-9A97-48c1-BA28-D9DCE795E93C}")
+            if (!GuidEquals(Convert.ToString(containsCorrectGuid), "{1AA9BF05-9A97-48c1-BA28-D9DCE795E93C}"))
             {
                 persistentHandler.SetValue(null, "{1AA9BF05-9A97-48c1-BA28-D9DCE795E93C}", RegistryValueKind.String);
             }

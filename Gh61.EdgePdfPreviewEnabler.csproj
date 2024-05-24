@@ -73,6 +73,7 @@
     <Compile Include="RegistryRules\PreviewHandlerListRule.cs" />
     <Compile Include="RegistryRules\PreviewHandlerX64ListRule.cs" />
     <Compile Include="RegistryRules\RegistryRuleBase.cs" />
+    <Compile Include="RegistryRules\SetAsDefaultPreviewerRule.cs" />
     <Compile Include="Rules\RuleBase.cs" />
     <Compile Include="WinUtils.cs" />
     <Page Include="MainWindow.xaml">

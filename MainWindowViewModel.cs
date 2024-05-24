@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using Gh61.EdgePdfPreviewEnabler.Commands;
 using Gh61.EdgePdfPreviewEnabler.DependencyRules;
 using Gh61.EdgePdfPreviewEnabler.RegistryRules;
 
@@ -47,6 +48,8 @@ namespace Gh61.EdgePdfPreviewEnabler
                 RegistryRules.Add(new PreviewHandlerX64ListRule());
             }
 
+            SetAsDefaultRule = new SetAsDefaultPreviewerRule();
+
             #endregion
         }
 
@@ -57,6 +60,10 @@ namespace Gh61.EdgePdfPreviewEnabler
         public ObservableCollection<DependencyRuleBase> DependencyRules { get; }
 
         public ObservableCollection<RegistryRuleBase> RegistryRules { get; }
+
+        public RegistryRuleBase SetAsDefaultRule { get; }
+
+        public ApplyRegistryRuleCommand ApplyRegistryRuleCommand { get; } = ApplyRegistryRuleCommand.Instance;
 
         #region PropertyChanged
 

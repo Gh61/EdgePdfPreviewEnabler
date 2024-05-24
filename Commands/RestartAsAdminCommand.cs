@@ -9,7 +9,8 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
     {
         public static RestartAsAdminCommand Instance { get; } = new RestartAsAdminCommand();
 
-        private RestartAsAdminCommand() : base("Restart as Administrator")
+        private RestartAsAdminCommand()
+            : base("Restart as Administrator")
         {
         }
 
@@ -27,7 +28,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
                 }
             };
 
-            bool isElevated = false;
+            var isElevated = false;
             try
             {
                 proc.Start();
