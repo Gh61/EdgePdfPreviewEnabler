@@ -27,7 +27,8 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
             try
             {
                 rule.Apply();
-                Thread.Sleep(100); // wait a little for registers to update and also for user
+                Thread.Sleep(100); // wait a little for registry to update and also for user experience
+                DoEvents();
             }
             catch (Exception e)
             {

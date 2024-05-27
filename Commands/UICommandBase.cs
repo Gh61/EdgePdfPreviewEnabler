@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Gh61.EdgePdfPreviewEnabler.Commands
 {
@@ -38,5 +40,14 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
+
+        #region Helpers
+
+        protected static void DoEvents()
+        {
+            Application.Current.Dispatcher.Invoke(DispatcherPriority.Background, new Action(delegate { }));
+        }
+
+        #endregion
     }
 }

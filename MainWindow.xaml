@@ -8,7 +8,8 @@
         xmlns:resx="clr-namespace:Gh61.EdgePdfPreviewEnabler.Localization"
         mc:Ignorable="d"
         Title="Microsoft Edge PDF Preview Enabler" Height="550" Width="800"
-        WindowStyle="ToolWindow">
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>

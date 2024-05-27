@@ -11,8 +11,10 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
 
         public static bool ShouldBeUsed()
         {
-            var wow6432Node = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node");
-            return wow6432Node != null;
+            // this registry key is only mirror of key in PreviewHandlerListRule
+            return false;
+            //var wow6432Node = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node");
+            //return wow6432Node != null;
         }
     }
 }
