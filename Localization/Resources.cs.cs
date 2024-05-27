@@ -14,6 +14,11 @@
                     {LocalizationKey.RegistryHeader, "Registry:"},
                     {LocalizationKey.DefaultPdfPreviewerHeader, "Nastavit jako výchozí pro náhledy PDF:"},
 
+                    {LocalizationKey.PreviewHandlerItemUnknown, "Neznámý - {0}"},
+                    {LocalizationKey.PreviewHandlerItemNone, "Žádný"},
+                    {LocalizationKey.PreviewHandlerItemOnlyPdf, "Zobrazit pouze PDF"},
+                    {LocalizationKey.PreviewHandlerCurrent, "Aktuální náhled PDF:"},
+
                     {LocalizationKey.CommandApply, "Použít"},
                     {LocalizationKey.CommandApplyAll, "Použít vše"},
                     {LocalizationKey.CommandInstall, "Instalovat"},

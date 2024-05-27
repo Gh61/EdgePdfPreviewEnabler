@@ -101,13 +101,27 @@
                     <ColumnDefinition Width="Auto" SharedSizeGroup="col1" />
                     <ColumnDefinition Width="Auto" SharedSizeGroup="col2" />
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <CheckBox Grid.Column="0" IsChecked="{Binding SetAsDefaultRule.IsFulfilled, Mode=OneWay}" IsEnabled="False">
+                <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding SetAsDefaultRule.IsFulfilled, Mode=OneWay}" IsEnabled="False">
                     <TextBlock Text="{Binding SetAsDefaultRule.Title, Mode=OneTime}" />
                 </CheckBox>
                 <!-- Due to bug in WPF the CommandParameter needs to be written before Command, and both needs to be bound from VM -->
-                <Button Grid.Column="1" Margin="0" CommandParameter="{Binding SetAsDefaultRule}" Command="{Binding ApplyRegistryRuleCommand}" />
+                <Button Grid.Row="0" Grid.Column="1" Margin="0" CommandParameter="{Binding SetAsDefaultRule}" Command="{Binding ApplyRegistryRuleCommand}" />
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="{x:Static resx:Resources.PreviewHandlerCurrent}" Margin="4 0"/>
+                    <ComboBox SelectedItem="{Binding DefaultPreviewer.SelectedItem}" ItemsSource="{Binding DefaultPreviewer.Items}" DisplayMemberPath="Name" />
+                    <CheckBox IsChecked="{Binding DefaultPreviewer.ShowOnlyPdf}">
+                        <TextBlock Text="{x:Static resx:Resources.PreviewHandlerItemOnlyPdf}" />
+                    </CheckBox>
+                </StackPanel>
+                <Button Grid.Row="1"  Grid.Column="1" Margin="0" CommandParameter="{Binding DefaultPreviewer}" Command="{Binding DefaultPreviewer.ApplySelectedCommand}" />
             </Grid>
         </Border>
+        
     </Grid>
 </Window>

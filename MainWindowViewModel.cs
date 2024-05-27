@@ -49,6 +49,8 @@ namespace Gh61.EdgePdfPreviewEnabler
             SetAsDefaultRule = new SetAsDefaultPreviewerRule();
 
             #endregion
+
+            DefaultPreviewer = new DefaultPreviewerViewModel(SetAsDefaultRule);
         }
 
         public Visibility NonAdminMessageVisibility { get; }
@@ -59,8 +61,10 @@ namespace Gh61.EdgePdfPreviewEnabler
 
         public ObservableCollection<RegistryRuleBase> RegistryRules { get; }
 
-        public RegistryRuleBase SetAsDefaultRule { get; }
+        public SetAsDefaultPreviewerRule SetAsDefaultRule { get; }
 
         public ApplyRegistryRuleCommand ApplyRegistryRuleCommand { get; } = ApplyRegistryRuleCommand.Instance;
+
+        public DefaultPreviewerViewModel DefaultPreviewer { get; }
     }
 }

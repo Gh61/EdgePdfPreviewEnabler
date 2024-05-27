@@ -1,5 +1,6 @@
 ﻿using System;
 using Gh61.EdgePdfPreviewEnabler.DependencyRules;
+using Gh61.EdgePdfPreviewEnabler.Localization;
 using Microsoft.Win32;
 
 namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
@@ -63,7 +64,7 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
         public override void Apply()
         {
             if (!_edgeInstalledRule.IsFulfilled)
-                throw new InvalidOperationException("Cannot Apply, when MS edge is not installed");
+                throw new InvalidOperationException(Resources.ExceptionCannotApplyMsEdgeNotInstalled);
 
             var clsidKey = Registry.ClassesRoot.OpenSubKey(_clsidPath + PreviewHandlerGuid, true);
             if (clsidKey == null)

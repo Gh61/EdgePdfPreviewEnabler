@@ -14,6 +14,11 @@
                     {LocalizationKey.RegistryHeader, "Registry:"},
                     {LocalizationKey.DefaultPdfPreviewerHeader, "Set as default PDF Previewer:"},
 
+                    {LocalizationKey.PreviewHandlerItemUnknown, "Unknown - {0}"},
+                    {LocalizationKey.PreviewHandlerItemNone, "None"},
+                    {LocalizationKey.PreviewHandlerItemOnlyPdf, "Show only PDF"},
+                    {LocalizationKey.PreviewHandlerCurrent, "Current PDF Previewer:"},
+
                     {LocalizationKey.CommandApply, "Apply"},
                     {LocalizationKey.CommandApplyAll, "Apply All"},
                     {LocalizationKey.CommandInstall, "Install"},

@@ -9,10 +9,15 @@ namespace Gh61.EdgePdfPreviewEnabler.RegistryRules
         /// </summary>
         private const string PreviewerTitle = "Microsoft PDF Previewer";
 
+        /// <summary>
+        /// Path to HLKM registry, where all preview handlers should be registered.
+        /// </summary>
+        public const string LocalMachinePreviewHandlerListPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\PreviewHandlers";
+
         private readonly string _path;
 
         public PreviewHandlerListRule()
-            : this(@"SOFTWARE\Microsoft\Windows\CurrentVersion\PreviewHandlers")
+            : this(LocalMachinePreviewHandlerListPath)
         {
         }
 

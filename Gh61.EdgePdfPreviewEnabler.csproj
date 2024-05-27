@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ApplyDefaultPreviewerCommand.cs" />
     <Compile Include="Commands\ApplyMultipleRegistryRulesCommand.cs" />
     <Compile Include="Commands\ApplyRegistryRuleCommand.cs" />
     <Compile Include="Commands\InstallDependencyRuleCommand.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Commands\RefreshRulesCommand.cs" />
     <Compile Include="Commands\RestartAsAdminCommand.cs" />
     <Compile Include="Commands\UICommandBase.cs" />
+    <Compile Include="DefaultPreviewerViewModel.cs" />
     <Compile Include="DependencyRules\DependencyRuleBase.cs" />
     <Compile Include="DependencyRules\MsEdgeInstalledRule.cs" />
     <Compile Include="DependencyRules\MsWebView2InstalledRule.cs" />

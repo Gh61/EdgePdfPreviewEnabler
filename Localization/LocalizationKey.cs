@@ -9,6 +9,12 @@
         RegistryHeader,
         DefaultPdfPreviewerHeader,
 
+        // DefaultPreviewerViewModel
+        PreviewHandlerItemUnknown,
+        PreviewHandlerItemNone,
+        PreviewHandlerItemOnlyPdf,
+        PreviewHandlerCurrent,
+
         // Commands
         CommandApply,
         CommandApplyAll,

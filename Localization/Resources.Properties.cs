@@ -28,6 +28,26 @@
         public static string DefaultPdfPreviewerHeader => GetTranslation(LocalizationKey.DefaultPdfPreviewerHeader);
 
         /// <summary>
+        ///   Looks up a localized string similar to Unknown - {0}.
+        /// </summary>
+        public static string PreviewHandlerItemUnknown => GetTranslation(LocalizationKey.PreviewHandlerItemUnknown);
+
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string PreviewHandlerItemNone => GetTranslation(LocalizationKey.PreviewHandlerItemNone);
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show only PDF.
+        /// </summary>
+        public static string PreviewHandlerItemOnlyPdf => GetTranslation(LocalizationKey.PreviewHandlerItemOnlyPdf);
+
+        /// <summary>
+        ///   Looks up a localized string similar to Current PDF Previewer:.
+        /// </summary>
+        public static string PreviewHandlerCurrent => GetTranslation(LocalizationKey.PreviewHandlerCurrent);
+
+        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         public static string CommandApply => GetTranslation(LocalizationKey.CommandApply);
@@ -63,7 +83,7 @@
         public static string RuleWebView2Installed => GetTranslation(LocalizationKey.RuleWebView2Installed);
 
         /// <summary>
-        ///   Looks up a localized string similar to Cannot Apply, when MS edge is not installed.
+        ///   Looks up a localized string similar to Cannot Apply, when MS Edge is not installed.
         /// </summary>
         public static string ExceptionCannotApplyMsEdgeNotInstalled => GetTranslation(LocalizationKey.ExceptionCannotApplyMsEdgeNotInstalled);
 
