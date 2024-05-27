@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Gh61.EdgePdfPreviewEnabler.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -76,6 +79,7 @@
       <DependentUpon>Resources.Properties.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="RegistryRules\ClsidPreviewHandlerRule.cs" />
     <Compile Include="RegistryRules\ClsidX64PreviewHandlerRule.cs" />
     <Compile Include="RegistryRules\PdfOpenWithRule.cs" />

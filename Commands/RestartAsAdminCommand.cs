@@ -18,11 +18,18 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
         {
             var exePath = Assembly.GetExecutingAssembly().Location;
 
+            // Retrieve the command line arguments for the current process
+            var commandLineArgs = Environment.GetCommandLineArgs();
+
+            // Skip the first argument as it is the executable path
+            var arguments = string.Join(" ", commandLineArgs, 1, commandLineArgs.Length - 1);
+
             var proc = new Process()
             {
                 StartInfo =
                 {
                     FileName = exePath,
+                    Arguments = arguments,
                     UseShellExecute = true,
                     Verb = "runas"
                 }
