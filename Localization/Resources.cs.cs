@@ -15,7 +15,7 @@
                     {LocalizationKey.DefaultPdfPreviewerHeader, "Nastavit jako výchozí pro náhledy PDF:"},
 
                     {LocalizationKey.PreviewHandlerItemUnknown, "Neznámý - {0}"},
-                    {LocalizationKey.PreviewHandlerItemNone, "Žádný"},
+                    {LocalizationKey.PreviewHandlerItemNone, "- Žádný -"},
                     {LocalizationKey.PreviewHandlerItemOnlyPdf, "Zobrazit pouze PDF"},
                     {LocalizationKey.PreviewHandlerCurrent, "Aktuální náhled PDF:"},
 

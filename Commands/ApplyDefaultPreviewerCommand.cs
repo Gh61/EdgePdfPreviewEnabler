@@ -17,7 +17,7 @@ namespace Gh61.EdgePdfPreviewEnabler.Commands
 
         protected override bool CanExecute(DefaultPreviewerViewModel model)
         {
-            return model.SelectedItem != null;
+            return model.SelectedItem?.Guid != null;
         }
     }
 }

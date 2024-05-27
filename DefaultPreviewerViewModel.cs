@@ -38,6 +38,7 @@ namespace Gh61.EdgePdfPreviewEnabler
 
         public ObservableCollection<PreviewHandlerItem> Items { get; } = new ObservableCollection<PreviewHandlerItem>();
 
+        private readonly PreviewHandlerItem _emptyItem = new PreviewHandlerItem(Resources.PreviewHandlerItemNone, null);
         private PreviewHandlerItem _selectedItem;
         public PreviewHandlerItem SelectedItem
         {
@@ -49,7 +50,7 @@ namespace Gh61.EdgePdfPreviewEnabler
 
         public void ApplySelectedItem()
         {
-            if (SelectedItem == null)
+            if (SelectedItem?.Guid == null)
                 return;
 
             _setDefaultRule.ApplyDefaultPdfPreviewer(SelectedItem.Guid);
@@ -67,7 +68,11 @@ namespace Gh61.EdgePdfPreviewEnabler
             }
 
             var values = previewHandlersKey.GetValueNames();
-            var newItems = new List<PreviewHandlerItem>(values.Length);
+            var newItems = new List<PreviewHandlerItem>(values.Length + 1);
+
+            // The empty item
+            newItems.Add(_emptyItem);
+
             foreach (var guid in values)
             {
                 var name = Convert.ToString(previewHandlersKey.GetValue(guid));
@@ -91,7 +96,7 @@ namespace Gh61.EdgePdfPreviewEnabler
             if (refreshSelected)
             {
                 var currentGuid = _setDefaultRule.GetCurrentDefaultPdfPreviewer();
-                SelectedItem = Items.FirstOrDefault(i => i.Guid == currentGuid);
+                SelectedItem = Items.FirstOrDefault(i => i.Guid == currentGuid) ?? _emptyItem;
             }
         }
 

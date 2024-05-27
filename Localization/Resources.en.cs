@@ -15,7 +15,7 @@
                     {LocalizationKey.DefaultPdfPreviewerHeader, "Set as default PDF Previewer:"},
 
                     {LocalizationKey.PreviewHandlerItemUnknown, "Unknown - {0}"},
-                    {LocalizationKey.PreviewHandlerItemNone, "None"},
+                    {LocalizationKey.PreviewHandlerItemNone, "- None -"},
                     {LocalizationKey.PreviewHandlerItemOnlyPdf, "Show only PDF"},
                     {LocalizationKey.PreviewHandlerCurrent, "Current PDF Previewer:"},
 
