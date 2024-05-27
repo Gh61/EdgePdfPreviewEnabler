@@ -25,8 +25,7 @@ namespace Gh61.EdgePdfPreviewEnabler
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
-                    return ArgumentsHelp();
+                    return ArgumentsHelp(e);
                 }
 
                 // set the UI culture
@@ -39,10 +38,27 @@ namespace Gh61.EdgePdfPreviewEnabler
             return 0;
         }
 
-        private static int ArgumentsHelp()
+        private static int ArgumentsHelp(Exception e = null)
         {
-            Console.WriteLine(@"The application supports only this arguments:");
-            Console.WriteLine(@"-culture en-US");
+            if (ConsoleManager.TryAttachConsole())
+            {
+                Console.WriteLine();
+
+                if (e != null)
+                {
+                    Console.WriteLine(@"ERROR: " + e.Message);
+                }
+
+                Console.WriteLine(@"The application supports only this arguments:");
+                Console.WriteLine(@"-culture en-US");
+                Console.WriteLine(@"(where en-US is any valid culture)");
+
+                // simulate terminal entry point (console will be detached)
+                Console.WriteLine();
+                Console.Write(@">");
+
+                ConsoleManager.DetachConsole();
+            }
 
             // error code
             return 1;

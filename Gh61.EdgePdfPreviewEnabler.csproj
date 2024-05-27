@@ -65,6 +65,7 @@
     <Compile Include="Commands\RefreshRulesCommand.cs" />
     <Compile Include="Commands\RestartAsAdminCommand.cs" />
     <Compile Include="Commands\UICommandBase.cs" />
+    <Compile Include="ConsoleManager.cs" />
     <Compile Include="DefaultPreviewerViewModel.cs" />
     <Compile Include="DependencyRules\DependencyRuleBase.cs" />
     <Compile Include="DependencyRules\MsEdgeInstalledRule.cs" />
