@@ -7,7 +7,7 @@ Additionally, it allows you to change the default PDF previewer for your system.
 
 The application allows you to set culture, based on passed arguments:
 ```
-Gh61.EdgePdfPreviewEnabler.exe -culture cs-CZ
+EdgePdfPreviewEnabler.exe -culture cs-CZ
 ```
 
 Localized cultures are:
